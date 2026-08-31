@@ -1,0 +1,31 @@
+{
+  "name": "yaml-learning",
+  "version": "1.0.0",
+  "description": "YAML (YAML Ain't Markup Language) is a human-readable data-serialization language. It is often used for configuration files, but it can also be used for data exchange between languages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engr-haider/yaml-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/engr-haider/yaml-learning/issues"
+  },
+  "homepage": "https://github.com/engr-haider/yaml-learning#readme",
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.63.1"
+  }
+}

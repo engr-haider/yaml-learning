@@ -1,0 +1,15 @@
+name: Website Health Check
+
+on:
+  push:
+
+jobs:
+  check-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Website
+        run: curl --fail https://google.com
+
+      - name: Success Message
+        run: echo "Website is working!"

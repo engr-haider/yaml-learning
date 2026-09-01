@@ -9,7 +9,10 @@ jobs:
 
     steps:
       - name: Check Website
-        run: curl --fail https://example.com
-
-      - name: Success Message
-        run: echo "Website is working!"
+        run: |
+          if curl --fail https://example.com; then
+            echo "Website is working!"
+          else
+            echo "Website is DOWN!"
+            exit 1
+          fi

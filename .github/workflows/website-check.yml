@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Check Website
-        run: curl --fail https://google.com
+        run: curl --fail https://example.com
 
       - name: Success Message
         run: echo "Website is working!"

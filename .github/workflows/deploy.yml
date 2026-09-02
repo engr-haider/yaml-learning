@@ -1,0 +1,58 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    environment:
+      name: staging
+
+    concurrency:
+      group: staging-deployment
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build application
+        run: npm run build
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+
+      - name: Deploy application
+        run: npm run deploy
+        env:
+          DEPLOY_ENV: staging
+          DEPLOY_FAIL: ${{ vars.DEPLOY_FAIL || 'false' }}
+          STAGING_API_KEY: ${{ secrets.STAGING_API_KEY }}
+
+      - name: Show deployed commit/version
+        run: |
+          echo "================================="
+          echo "STAGING DEPLOYMENT COMPLETED"
+          echo "================================="
+          echo "Commit: ${{ github.sha }}"
+          echo "Version: ${{ github.sha }}"
+          echo "Environment: staging"
+          echo "================================="

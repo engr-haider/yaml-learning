@@ -6,19 +6,19 @@ import {
     canTakeLeave
 } from '../src/leave.js';
 
-test('should calculate remaining leaves', () => {
+test('calculate remaining leaves', () => {
     const result = calculateRemainingLeaves(20, 5);
 
     assert.equal(result, 15);
 });
 
-test('should allow leave when enough balance exists', () => {
+test('allow leave when balance is enough', () => {
     const result = canTakeLeave(10, 3);
 
     assert.equal(result, true);
 });
 
-test('should reject leave when balance is insufficient', () => {
+test('reject leave when balance is insufficient', () => {
     const result = canTakeLeave(2, 5);
 
     assert.equal(result, false);

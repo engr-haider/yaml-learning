@@ -9,7 +9,7 @@ import {
 test('should calculate remaining leaves', () => {
     const result = calculateRemainingLeaves(20, 5);
 
-    assert.equal(result, 20);
+    assert.equal(result, 15);
 });
 
 test('should allow leave when enough balance exists', () => {

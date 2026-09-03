@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Check Website
         run: |
-          if curl --fail https://exampleali.com; then
+          if curl --fail https://www.google.com; then
             echo "Website is working!"
           else
             echo "Website is DOWN!"

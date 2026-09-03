@@ -1,0 +1,5 @@
+{
+  "application": "employee-leave-api",
+  "version": "local-development",
+  "environment": "staging"
+}
